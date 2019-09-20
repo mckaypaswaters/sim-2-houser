@@ -22,7 +22,7 @@
 }
 .light-box {
   width: 60vw;
-  height: 100vh;
+  height: auto;
   background: #E5F4EC;
   display: flex;
   justify-content: center;

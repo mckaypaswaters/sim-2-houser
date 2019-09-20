@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 export default class Wizard extends Component {
     constructor() {
@@ -12,6 +13,10 @@ export default class Wizard extends Component {
             zip: 0
         }
     }
+    createHouse() {
+        axios.post('/api/house', this.state)
+    }
+
     handleChangeName(value) {
         this.setState({name: value})
     }
@@ -42,6 +47,9 @@ export default class Wizard extends Component {
                         State <input onChange={e => this.handleChangeState(e.target.value)} value={this.state.state} type="text"/>
                         Zip <input onChange={e => this.handleChangeZip(e.target.value)} value={this.state.zip} type="number"/>
                     </div>
+                    <Link to='/'>
+                        <button onClick={() => this.createHouse()}>Complete</button>
+                    </Link>
                 </div>
             </div>
         </div>

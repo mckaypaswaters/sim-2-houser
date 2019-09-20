@@ -8,6 +8,7 @@ const ctrl = require('./controller')
 app.use(express.json())
 
 app.get('/api/houses', ctrl.getAllHouses)
+app.post('/api/house', ctrl.createHouse)
 
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)

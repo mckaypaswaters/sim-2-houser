@@ -3,8 +3,8 @@ import houser from './houser.png'
 import {Link} from 'react-router-dom'
 
 export default class Header extends Component {
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
     }
     render(){
         return(

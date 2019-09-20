@@ -36,10 +36,27 @@
   
 }
 .dashboard-parent {
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   
 }
 .city-state-zip {
   display: flex;
+}
+.line {
+  width: 50vw;
+}
+.dashboard-houses {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  /* background: blue; */
+}
+.testing {
+  background: #DEDEDE;
+  margin-bottom: 3vh;
+  padding: 0 0 0 1.5vw;
+}
+.x-button {
+  margin-left: 45vw;
 }

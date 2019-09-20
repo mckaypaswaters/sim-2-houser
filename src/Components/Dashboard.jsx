@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import House from './House'
 import {Link} from 'react-router-dom'
+import axios from 'axios'
 
 export default class Dashboard extends Component {
     constructor(){
@@ -9,11 +10,26 @@ export default class Dashboard extends Component {
             houses: []
         }
     }
-    render(){
-        let mappedHouses = this.state.houses.map((el, i) => {
-            return <House key={i} el={el}/>
-        })
 
+    async componentDidMount() {
+        const houses = await axios.get('/api/houses', this.state.houses)
+        this.setState({houses: houses.data})
+    }
+    renderHouses(){
+        const {houses} = this.state
+        return houses.map((item) =>
+            <House
+                key={item.id}
+                name={item.name}
+                address={item.address}
+                city={item.city}
+                state={item.state}
+                zip={item.zip}
+            />
+            )
+    }
+
+    render(){
         return(
             <div className='light-box-parent'>
                 <div className='light-box'>
@@ -22,7 +38,11 @@ export default class Dashboard extends Component {
                         <Link to='/wizard'>
                             <button className='new-property-button'>Add New Property</button>
                         </Link>
-                        {mappedHouses}
+                        <hr className='line'/>
+                        <div className='dashboard-houses'>
+                            <h4>Property Listings</h4>
+                            {this.renderHouses()}
+                        </div>
                     </div>
                 </div>
             </div>

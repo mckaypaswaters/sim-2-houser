@@ -7,6 +7,8 @@ const ctrl = require('./controller')
 
 app.use(express.json())
 
+app.get('/api/houses', ctrl.getAllHouses)
+
 massive(CONNECTION_STRING).then(db => {
     app.set('db', db)
     app.listen(SERVER_PORT, () => console.log(`Bidoof for MVP ${SERVER_PORT}`))

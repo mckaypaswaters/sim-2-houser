@@ -9,6 +9,7 @@ export default class Dashboard extends Component {
         this.state = {
             houses: []
         }
+        this.deleteHouse = this.deleteHouse.bind(this)
     }
 
     async componentDidMount() {
@@ -20,13 +21,18 @@ export default class Dashboard extends Component {
         return houses.map((item) =>
             <House
                 key={item.id}
+                id={item.id}
                 name={item.name}
                 address={item.address}
                 city={item.city}
                 state={item.state}
                 zip={item.zip}
+                deleteHouseFn={this.deleteHouse}
             />
             )
+    }
+    async deleteHouse(id) {
+        axios.delete(`/api/house/${id}`)
     }
 
     render(){

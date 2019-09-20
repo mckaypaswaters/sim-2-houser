@@ -8,7 +8,7 @@ export default class House extends Component {
         return(
             <div className='testing'>
                 <div>
-                    <button className='x-button'>X</button>
+                    <button onClick={() => this.props.deleteHouseFn(this.props.id)}className='x-button'>X</button>
                 </div>
                 <p>Property Name: {this.props.name}</p>
                 <p>Address: {this.props.address}</p>

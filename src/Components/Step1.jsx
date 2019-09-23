@@ -68,6 +68,16 @@ export default class Step1 extends Component {
             type: STEP_1
         })
     }
+    cancelButton() {
+        const reduxState = store.getState()
+        this.setState({
+            name: '',
+            address: '',
+            city: '',
+            state: '',
+            zip: ''
+        })
+    }
 
     // handleChangeName(value) {
     //     this.setState({name: value})
@@ -91,7 +101,9 @@ export default class Step1 extends Component {
                 <div className='light-box'>
                     <div className='wizard-parent'>
                         <h1>Add New Listing</h1>
-                        <Link to='/'><button>Cancel</button></Link>
+                        <nav onClick={() => this.props.history.push('/')}>
+                            <button onClick={() => this.cancelButton()}>Cancel</button>
+                        </nav>
                         Property Name<input onChange={e => this.handleChangeName(e)} value={this.state.name} type="text"/>
                         Address <input onChange={e => this.handleChangeAddress(e)} value={this.state.address} type="text"/>
                         <div className='city-state-zip'>
@@ -99,9 +111,9 @@ export default class Step1 extends Component {
                             State <input onChange={e => this.handleChangeState(e)} value={this.state.state} type="text"/>
                             Zip <input onChange={e => this.handleChangeZip(e)} value={this.state.zip} type="number"/>
                         </div>
-                        <Link to='/wizard/step2'>
+                        <nav onClick={() => this.props.history.push('/wizard/step2')}>
                             <button onClick={() => this.handleSubmit()}>Next Step</button>
-                        </Link>
+                        </nav>
                     </div>
                 </div>
             </div>

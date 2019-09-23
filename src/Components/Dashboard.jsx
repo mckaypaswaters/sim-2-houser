@@ -35,6 +35,7 @@ export default class Dashboard extends Component {
                 deleteHouseFn={this.deleteHouse}
             />
             )
+        this.componentDidMount()
     }
     async deleteHouse(id) {
         axios.delete(`/api/house/${id}`)

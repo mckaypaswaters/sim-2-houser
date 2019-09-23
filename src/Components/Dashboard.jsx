@@ -41,7 +41,7 @@ export default class Dashboard extends Component {
                 <div className='light-box'>
                     <div className='dashboard-parent'>
                         <h1>Dashboard</h1>
-                        <Link to='/wizard'>
+                        <Link to='/wizard/step1'>
                             <button className='new-property-button'>Add New Property</button>
                         </Link>
                         <hr className='line'/>

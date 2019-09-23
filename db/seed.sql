@@ -13,3 +13,7 @@ VALUES ('Skylars', '123 Pirahna St.', 'Lindon', 'UT', 84042);
 INSERT INTO houses (name, address, city, state, zip)
 VALUES ('Spencers', '123 Banjo St.', 'Spiral Mountain', 'UT', 84042);
 
+ALTER TABLE houses
+ADD COLUMN rent DECIMAL;
+-- I did this for all three of the columns, but this one is just the example
+

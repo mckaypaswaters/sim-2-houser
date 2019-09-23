@@ -6,8 +6,8 @@ module.exports = {
     },
     createHouse: async (req, res) => {
         const db = req.app.get('db')
-        const {name, address, city, state, zip} = req.body
-        const createHouse = await db.create_house([name, address, city, state, zip])
+        const {name, address, city, state, zip, img, mortgage, rent} = req.body
+        const createHouse = await db.create_house([name, address, city, state, zip, img, mortgage, rent])
         res.status(200).send(createHouse)
     },
     deleteHouse: async (req, res) => {

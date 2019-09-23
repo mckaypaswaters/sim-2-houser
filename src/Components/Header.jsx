@@ -10,7 +10,7 @@ export default class Header extends Component {
         return(
             <header className='dark-header-bar'>
                 <Link to='/'>
-                    <img className='house-img' src={houser} alt="house"/>
+                    <img className='houser-img' src={houser} alt="house"/>
                 </Link>
             </header>
         )

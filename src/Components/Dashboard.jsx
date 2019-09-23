@@ -2,12 +2,14 @@ import React, {Component} from 'react'
 import House from './House'
 import {Link} from 'react-router-dom'
 import axios from 'axios'
+import store from '../store'
 
 export default class Dashboard extends Component {
     constructor(){
         super()
+        const reduxState = store.getState()
         this.state = {
-            houses: []
+            houses: reduxState.houses
         }
         this.deleteHouse = this.deleteHouse.bind(this)
     }
@@ -27,12 +29,16 @@ export default class Dashboard extends Component {
                 city={item.city}
                 state={item.state}
                 zip={item.zip}
+                img={item.img}
+                mortgage={item.mortgage}
+                rent={item.rent}
                 deleteHouseFn={this.deleteHouse}
             />
             )
     }
     async deleteHouse(id) {
         axios.delete(`/api/house/${id}`)
+        this.componentDidMount()
     }
 
     render(){

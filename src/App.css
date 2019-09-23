@@ -11,10 +11,14 @@
   height: 10vh;
   background: #629675;
 }
-.house-img {
+.houser-img {
   margin: 0 40vw 0 0;
   height: auto;
   width: 12vw;
+}
+.house-img {
+  height: auto;
+  width: 15vw;
 }
 .light-box-parent {
   display: flex;
